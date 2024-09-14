@@ -23,4 +23,19 @@ namespace GeneratorDistanceOfTarget
             return randomNumber;
         }
     }
+    public class Ballistic
+    {
+        private const int shell = 200; 
+        private const double gravity = 9.81;
+
+        public int CalculateBallistic(double angle)
+        {
+            
+            double angleInRadians = angle * Math.PI / 180;
+
+            int distance = (int)(((shell * shell) * Math.Sin(2 * angleInRadians)) / (2 * gravity));
+
+            return distance;
+        }
+    }
 }
