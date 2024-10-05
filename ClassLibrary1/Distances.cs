@@ -14,6 +14,9 @@ namespace GeneratorDistanceOfTarget
             Random random = new Random();
             int randomNumber;
 
+            /// REVIEW. a.boikov. 05/10/2024. Ограничения уже определены в рамках Next
+            /// Метод не выдаст данных, выходящих за указанный диапазон гарантированно
+            /// Цикл не нужен.
             do
             {
                 randomNumber = random.Next(min, max + 1);
@@ -23,8 +26,12 @@ namespace GeneratorDistanceOfTarget
             return randomNumber;
         }
     }
+
+    /// REVIEW. a.boikov. 05/10/2024. В тестовых данных ожидаемых результатов
+    /// явно ошибки. class Ballistic вынести в отдельный файл библиотеки классов
     public class Ballistic
     {
+        /// REVIEW. a.boikov. 05/10/2024. добавить комментарий к переменным, что они значат
         private const int shell = 200;
         private const double gravity = 9.81;
 
@@ -40,6 +47,9 @@ namespace GeneratorDistanceOfTarget
             double[] x = new double[numSteps];
             double[] y = new double[numSteps];
 
+            /// REVIEW. a.boikov. 05/10/2024. Этот метод должен вычислить всего лишь координату падения.
+            /// Она состоит из значения X и значения Y.
+            /// Цикл не нужен. Обычная формула расчёта координаты падения
             for (int i = 0; i < numSteps; i++)
             {
                 time = i * deltaTime;

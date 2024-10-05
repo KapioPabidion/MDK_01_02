@@ -7,7 +7,7 @@ namespace Testing
     {
         [TestMethod]
         public void TestGeneratorDistanceOfTarget()
-        {
+        { 
             int min = 300;
             int max = 2000;
 
