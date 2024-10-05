@@ -48,7 +48,7 @@ namespace GeneratorDistanceOfTarget
                 y[i] = distance * Math.Sin(angle) - 0.5 * gravity * time * time;
             }
 
-            return Distance;
+            return time;
         }
     }
 }
