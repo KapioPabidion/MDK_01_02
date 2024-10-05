@@ -25,17 +25,30 @@ namespace GeneratorDistanceOfTarget
     }
     public class Ballistic
     {
-        private const int shell = 200; 
+        private const int shell = 200;
         private const double gravity = 9.81;
 
-        public int CalculateBallistic(double angle)
+        public double CalculateBallistic(double angle)
         {
-            
-            double angleInRadians = angle * Math.PI / 180;
+            angle = angle * 3.14 / 180;
 
-            int distance = (int)(((shell * shell) * Math.Sin(2 * angleInRadians)) / (2 * gravity));
+            double time = 0.0;
+            double deltaTime = 0.1;
+            double maxTime = 90.0; 
 
-            return distance;
+            int numSteps = (int)(maxTime / deltaTime);
+            double[] x = new double[numSteps];
+            double[] y = new double[numSteps];
+
+            for (int i = 0; i < numSteps; i++)
+            {
+                time = i * deltaTime;
+                double distance = Math.Floor((Math.Pow(shell, 2) * Math.Sin(2 * angle)) / gravity + 0.5);
+                x[i] = distance * Math.Cos(angle);
+                y[i] = distance * Math.Sin(angle) - 0.5 * gravity * time * time;
+            }
+
+            return Distance;
         }
     }
 }
