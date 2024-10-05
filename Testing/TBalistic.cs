@@ -7,6 +7,9 @@ namespace Testing
     {
 
         [TestMethod]
+        /// REVIEW. a.boikov. 05/10/2024. В тестовых данных ожидаемых результатов
+        /// явно ошибки. Потому что разрешения 4015 не существует.
+        /// Т.е. мы должны результаты математических расчётов перевести на px в соответствии с разрешением экрана   
         [DataRow(0, 0)] 
         [DataRow(10, 1394)] 
         [DataRow(25, 3122)]
@@ -18,7 +21,9 @@ namespace Testing
         {
                 var target = new Ballistic();
                 double actual = target.CalculateBallistic(angle);
-                Assert.AreEqual(expected, actual);
+            /// REVIEW. a.boikov. 05/10/2024. Тест тест здесь не проходит
+            /// CalculateBallistic выдает всегда один и тот же ответ, хотя должна выдавать разный в завсисимости от angle.
+            Assert.AreEqual(expected, actual);
         }
     }
 
