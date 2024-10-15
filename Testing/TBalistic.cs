@@ -18,10 +18,8 @@ namespace Testing
         [DataRow(85, 708)]
         public void TestBalistic(double angle, int expected)
         {
-                var target = new BallisticDistance(angle);
-                double actual = target.CalculateBallistic();
-            /// REVIEW. a.boikov. 05/10/2024. Тест тест здесь не проходит
-            /// CalculateBallistic выдает всегда один и тот же ответ, хотя должна выдавать разный в завсисимости от angle.
+            var target = new BallisticDistance(angle);
+            double actual = target.CalculateBallistic();
             Assert.AreEqual(expected, actual);
         }
     }

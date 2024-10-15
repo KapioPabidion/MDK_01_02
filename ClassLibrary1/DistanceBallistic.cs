@@ -13,6 +13,7 @@ namespace BallisticCalculation
             numSteps = (int)(maxTime / deltaTime);
         }
 
+        /// REVIEW. a.boikov. 15/10/2024. Делаем тест на этот метод
         public (double, double) CalculateTrajectory(double angle, double distance)
         {
             double[] x = new double[numSteps];
