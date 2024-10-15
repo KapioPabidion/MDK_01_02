@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BallisticCalculation
 {
+    struct Point
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
     public class BallisticTrajectory
     {
         private double deltaTime = 0.1;
@@ -13,8 +20,10 @@ namespace BallisticCalculation
             numSteps = (int)(maxTime / deltaTime);
         }
 
-        /// REVIEW. a.boikov. 15/10/2024. Делаем тест на этот метод
-        public (double, double) CalculateTrajectory(double angle, double distance)
+
+        /// REVIEW. a.boikov. 15/10/2024. Делаем тест на этот метод.
+        /// двигаемся с шагом 5px (deltaX = 5)
+        public List<Point> CalculateTrajectory(double angle, double distance)
         {
             double[] x = new double[numSteps];
             double[] y = new double[numSteps];
