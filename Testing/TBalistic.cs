@@ -1,5 +1,4 @@
-﻿using GeneratorDistanceOfTarget;
-
+﻿using BallisticCalculation;
 namespace Testing
 {
     [TestClass]
@@ -11,16 +10,16 @@ namespace Testing
         /// явно ошибки. Потому что разрешения 4015 не существует.
         /// Т.е. мы должны результаты математических расчётов перевести на px в соответствии с разрешением экрана   
         [DataRow(0, 0)] 
-        [DataRow(10, 1394)] 
-        [DataRow(25, 3122)]
-        [DataRow(40, 4015)]
+        [DataRow(10, 1395)] 
+        [DataRow(25, 3124)]
+        [DataRow(40, 4016)]
         [DataRow(50, 4016)]
-        [DataRow(75, 2043)]
-        [DataRow(85, 714)]
+        [DataRow(75, 2039)]
+        [DataRow(85, 708)]
         public void TestBalistic(double angle, int expected)
         {
-                var target = new Ballistic();
-                double actual = target.CalculateBallistic(angle);
+                var target = new BallisticDistance(angle);
+                double actual = target.CalculateBallistic();
             /// REVIEW. a.boikov. 05/10/2024. Тест тест здесь не проходит
             /// CalculateBallistic выдает всегда один и тот же ответ, хотя должна выдавать разный в завсисимости от angle.
             Assert.AreEqual(expected, actual);

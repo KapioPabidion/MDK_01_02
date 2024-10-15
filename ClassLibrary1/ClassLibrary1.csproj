@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DistanceHit.cs" />
+    <Compile Include="DistanceBallistic.cs" />
     <Compile Include="Distances.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
